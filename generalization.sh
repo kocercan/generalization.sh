@@ -10,10 +10,11 @@
 #
 # Compatible with >= CentOS 7.1, CentOS 8.0
 ###############################################
-yum update kernel -y
-yum update -y && yum upgrade -y
+dnf install -y epel-release
+dnf update kernel -y
+dnf update -y && dnf upgrade -y
 
-yum install -y man traceroute wget telnet net-tools vim git python3-pip snapd gcc java epel-release p7zip
+dnf install -y man traceroute wget telnet net-tools vim git python3-pip snapd gcc java  p7zip
 systemctl stop firewalld
 systemctl disable firewalld
 sed -i s/^SELINUX=.*$/SELINUX=permissive/ /etc/sysconfig/selinux
