@@ -14,7 +14,7 @@ dnf install -y epel-release
 dnf update kernel -y
 dnf update -y && dnf upgrade -y
 
-dnf install -y man traceroute wget telnet net-tools vim git python3-pip snapd gcc java  p7zip
+dnf install -y man traceroute wget telnet net-tools vim git python3-pip gcc java
 systemctl stop firewalld
 systemctl disable firewalld
 sed -i s/^SELINUX=.*$/SELINUX=permissive/ /etc/sysconfig/selinux
