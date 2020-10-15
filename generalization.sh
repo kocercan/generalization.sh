@@ -7,14 +7,14 @@
 # Script to generalize Operating System for templating.
 # This script needs root privileges.
 # 
-#  curl -sL https://raw.githubusercontent.com/kocercan/ubuntu-18.04-scripts/master/prepare-ubuntu-18.04-template.sh | sudo -E bash -
+#  curl -sSL https://raw.githubusercontent.com/kocercan/generalization.sh/master/generalization.sh | sudo -E bash -
 # Compatible with >= CentOS 7.1, CentOS 8.0
 ###############################################
-dnf install -y epel-release
-dnf update kernel -y
-dnf update -y && dnf upgrade -y
+yum install -y epel-release
+yum update kernel -y
+yum update -y && dnf upgrade -y
 
-dnf install -y man traceroute wget telnet net-tools vim git python3-pip gcc java
+yum install -y man traceroute wget telnet net-tools vim git python3-pip gcc java
 systemctl stop firewalld
 systemctl disable firewalld
 sed -i s/^SELINUX=.*$/SELINUX=permissive/ /etc/sysconfig/selinux
@@ -72,7 +72,9 @@ rm_if_exists "/var/log/dmesg.old"
 rm_if_exists "/var/log/anaconda/*"
 rm_if_exists "/var/crash/*"
 find /var/log -type f -print0 | xargs -0 --no-run-if-empty truncate -s 0
-
+#cleanup /tmp directories
+rm -rf /tmp/*
+rm -rf /var/tmp/*
 
 # Remove received emails.
 echo "Removing received emails..."
