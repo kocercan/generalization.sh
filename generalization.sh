@@ -12,7 +12,7 @@
 ###############################################
 yum install -y epel-release
 yum update kernel -y
-yum update -y && dnf upgrade -y
+yum update -y && yum upgrade -y
 
 yum install -y man traceroute wget telnet net-tools vim git python3-pip gcc java
 systemctl stop firewalld
