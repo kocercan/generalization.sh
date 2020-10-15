@@ -7,7 +7,7 @@
 # Script to generalize Operating System for templating.
 # This script needs root privileges.
 # 
-#
+#  curl -sL https://raw.githubusercontent.com/kocercan/ubuntu-18.04-scripts/master/prepare-ubuntu-18.04-template.sh | sudo -E bash -
 # Compatible with >= CentOS 7.1, CentOS 8.0
 ###############################################
 dnf install -y epel-release
